@@ -5,9 +5,14 @@ const cors=require('cors')
 const app=express();
 
 app.use(cors())
+
 app.use(express.json())
 
-mongoose.connect("https://praticebackend-3.onrender.com")
+
+const dotenv=require('dotenv')
+dotenv.config()
+
+mongoose.connect("mongodb://0.0.0.0/newdatabase")
 const conn=mongoose.connection;
 
 conn.once('open',()=>{
@@ -38,7 +43,7 @@ app.delete("/delete/:id",async(req,res)=>{
    await  usermodule.findByIdAndDelete(req.params.id)
 })
 
-app.listen(3001,()=>{
+app.listen(4002,()=>{
     console.log("server is running...")
 })
 
