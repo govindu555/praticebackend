@@ -12,7 +12,7 @@ app.use(express.json())
 const dotenv=require('dotenv')
 dotenv.config()
 
-mongoose.connect("mongodb://0.0.0.0/newdatabase")
+mongoose.connect(process.env.mongodb_url)
 const conn=mongoose.connection;
 
 conn.once('open',()=>{
