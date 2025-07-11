@@ -7,7 +7,7 @@ const app=express();
 app.use(cors())
 app.use(express.json())
 
-mongoose.connect("https://praticebackend.onrender.com")
+mongoose.connect("https://praticebackend.onrender.com/mongodb://localhost:27017/newdatabase")
 const conn=mongoose.connection;
 
 conn.once('open',()=>{
