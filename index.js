@@ -4,6 +4,8 @@ const cors=require('cors')
 
 const app=express();
 
+const PORT=process.env.PORT || 4001
+
 app.use(cors())
 
 app.use(express.json())
@@ -43,7 +45,7 @@ app.delete("/delete/:id",async(req,res)=>{
    await  usermodule.findByIdAndDelete(req.params.id)
 })
 
-app.listen(4002,()=>{
+app.listen(PORT,()=>{
     console.log("server is running...")
 })
 
